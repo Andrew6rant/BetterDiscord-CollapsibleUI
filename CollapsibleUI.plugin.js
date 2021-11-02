@@ -113,18 +113,18 @@ module.exports = (() => {
             document.querySelectorAll('.collapsible-ui-element').forEach(e => e.remove());
 
             // Apply transitions to UI elements
-            document.querySelector('.sidebar-2K8pFh').style.transition = 'width 500ms';
-            document.querySelector('.wrapper-3NnKdC').style.transition = 'width 500ms';
+            document.querySelector('.sidebar-2K8pFh').style.transition = 'width 250ms';
+            document.querySelector('.wrapper-3NnKdC').style.transition = 'width 250ms';
             if (document.querySelector('.membersWrap-2h-GB4')) {
                 document.querySelector('.membersWrap-2h-GB4').style.overflow = 'hidden';
                 document.querySelector('.membersWrap-2h-GB4').style.maxWidth = '240px';
-                document.querySelector('.membersWrap-2h-GB4').style.transition = 'max-width 500ms, min-width 500ms';
+                document.querySelector('.membersWrap-2h-GB4').style.transition = 'max-width 250ms, min-width 250ms';
                 document.querySelector('.search-36MZv-').previousElementSibling.style.display = 'none';
             }
 
             if (document.querySelector('.form-2fGMdU')) {
                 document.querySelector('.form-2fGMdU').style.maxHeight = '400px';
-                document.querySelector('.form-2fGMdU').style.transition = 'max-height 500ms';
+                document.querySelector('.form-2fGMdU').style.transition = 'max-height 250ms';
             }
 
             // Define & add new toolbar icons
@@ -289,3 +289,4 @@ module.exports = (() => {
     }
 
 })();
+
