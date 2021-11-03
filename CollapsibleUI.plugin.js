@@ -243,8 +243,8 @@ module.exports = (() => {
                 newToolbarIcon.setAttribute('tabindex', '0');
                 newToolbarIcon.innerHTML = '<svg x="0" y="0" class="icon-22AiRD" aria-hidden="false" width="24" height="24" viewBox="' + viewBox + '">' + rawSVGData + '</svg>';
 
-            // Insert icon to the left of the search bar
-            document.querySelector('.toolbar-1t6TWx').insertBefore(newToolbarIcon, document.querySelector('.search-36MZv-'));
+            // Insert icon to the left of the member list button
+            document.querySelector('.toolbar-1t6TWx').insertBefore(newToolbarIcon, document.querySelector('.selected-1GqIat'));
 
             // Return DOM Element of newly-created toolbar icon
             return newToolbarIcon;
