@@ -176,11 +176,11 @@ module.exports = (() => {
             // Add event listener to the Server List button to update the icon, UI, & settings on click
             serverListButton.addEventListener('click', function(){
                 if (BdApi.getData('CollapsibleUI', 'serverListButtonActive') === 'true') {
-                    document.querySelector('.wrapper-3NnKdC').style.width = '0px';
+                    document.querySelector('.wrapper-3NnKdC').style.display = "none";
                     BdApi.setData('CollapsibleUI', 'serverListButtonActive', 'false');
                     this.classList.remove('selected-1GqIat');
                 } else {
-                    document.querySelector('.wrapper-3NnKdC').style.removeProperty('width');
+                    document.querySelector('.wrapper-3NnKdC').style.display = "initial";
                     BdApi.setData('CollapsibleUI', 'serverListButtonActive', 'true');
                     this.classList.add('selected-1GqIat');
                 }
@@ -189,11 +189,11 @@ module.exports = (() => {
             // Add event listener to the Channel List button to update the icon, UI, & settings on click
             channelListButton.addEventListener('click', function(){
                 if (BdApi.getData('CollapsibleUI', 'channelListButtonActive') === 'true') {
-                    document.querySelector('.sidebar-2K8pFh').style.width = '0px';
+                    document.querySelector('.sidebar-2K8pFh').style.display = "none";
                     BdApi.setData('CollapsibleUI', 'channelListButtonActive', 'false');
                     this.classList.remove('selected-1GqIat');
                 } else {
-                    document.querySelector('.sidebar-2K8pFh').style.removeProperty('width');
+                    document.querySelector('.sidebar-2K8pFh').style.display = "flex";
                     BdApi.setData('CollapsibleUI', 'channelListButtonActive', 'true');
                     this.classList.add('selected-1GqIat');
                 }
@@ -289,4 +289,3 @@ module.exports = (() => {
     }
 
 })();
-
