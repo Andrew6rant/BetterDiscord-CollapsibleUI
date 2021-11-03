@@ -119,7 +119,7 @@ module.exports = (() => {
                 document.querySelector('.membersWrap-2h-GB4').style.overflow = 'hidden';
                 document.querySelector('.membersWrap-2h-GB4').style.maxWidth = '240px';
                 document.querySelector('.membersWrap-2h-GB4').style.transition = 'max-width 250ms, min-width 250ms';
-                document.querySelector('.search-36MZv-').previousElementSibling.style.display = 'none';
+                //document.querySelector('.search-36MZv-').previousElementSibling.style.display = 'none';
             }
 
             if (document.querySelector('.form-2fGMdU')) {
@@ -131,11 +131,6 @@ module.exports = (() => {
             // Icons are part of the Bootstrap Icons library, which can be found at https://icons.getbootstrap.com/
             var serverListButton = this.addToolbarIcon('Server List', '<path fill="currentColor" d="M-3.429,0.857C-3.429-0.72-2.149-2-0.571-2h17.143c1.578,0,2.857,1.28,2.857,2.857v14.286c0,1.578-1.279,2.857-2.857,2.857H-0.571c-1.578,0-2.857-1.279-2.857-2.857V0.857z M3.714-0.571v17.143h12.857c0.789,0,1.429-0.64,1.429-1.429V0.857c0-0.789-0.64-1.428-1.429-1.428H3.714z M2.286-0.571h-2.857C-1.36-0.571-2,0.068-2,0.857v14.286c0,0.789,0.64,1.429,1.429,1.429h2.857V-0.571z"/>', '-4 -4 24 24');
             var channelListButton = this.addToolbarIcon('Channel List', '<path fill="currentColor" d="M3.5,13.5c0-0.414,0.335-0.75,0.75-0.75h13.5c0.414,0,0.75,0.336,0.75,0.75s-0.336,0.75-0.75,0.75H4.25C3.835,14.25,3.5,13.914,3.5,13.5z M3.5,7.5c0-0.415,0.335-0.75,0.75-0.75h13.5c0.414,0,0.75,0.335,0.75,0.75s-0.336,0.75-0.75,0.75H4.25C3.835,8.25,3.5,7.915,3.5,7.5z M3.5,1.5c0-0.415,0.335-0.75,0.75-0.75h13.5c0.414,0,0.75,0.335,0.75,0.75s-0.336,0.75-0.75,0.75H4.25C3.835,2.25,3.5,1.915,3.5,1.5z M-1,3c0.828,0,1.5-0.672,1.5-1.5S-0.172,0-1,0s-1.5,0.672-1.5,1.5S-1.828,3-1,3z M-1,9c0.828,0,1.5-0.672,1.5-1.5S-0.172,6-1,6s-1.5,0.672-1.5,1.5S-1.828,9-1,9z M-1,15c0.828,0,1.5-0.671,1.5-1.5S-0.172,12-1,12s-1.5,0.671-1.5,1.5S-1.828,15-1,15z"/>', '-4 -4 24 24');
-            if (document.querySelector('.membersWrap-2h-GB4')) {
-                var membersListButton = this.addToolbarIcon('Members List', '<path fill="currentColor" d="M6.5,17c0,0-1.5,0-1.5-1.5s1.5-6,7.5-6s7.5,4.5,7.5,6S18.5,17,18.5,17H6.5z M12.5,8C14.984,8,17,5.985,17,3.5S14.984-1,12.5-1S8,1.015,8,3.5S10.016,8,12.5,8z"/><path fill="currentColor" d="M3.824,17C3.602,16.531,3.49,16.019,3.5,15.5c0-2.033,1.021-4.125,2.904-5.58C5.464,9.631,4.483,9.488,3.5,9.5c-6,0-7.5,4.5-7.5,6S-2.5,17-2.5,17H3.824z"/><path fill="currentColor" d="M2.75,8C4.821,8,6.5,6.321,6.5,4.25S4.821,0.5,2.75,0.5S-1,2.179-1,4.25S0.679,8,2.75,8z"/>', '-4 -4 24 24');
-            } else {
-                var membersListButton = false;
-            }
 
             // Read stored user data to decide active state of Server List button
             if (BdApi.getData('CollapsibleUI', 'serverListButtonActive') === 'false') {
@@ -157,20 +152,6 @@ module.exports = (() => {
             } else {
                 BdApi.setData('CollapsibleUI', 'channelListButtonActive', 'true');
                 channelListButton.classList.add('selected-1GqIat');
-            }
-
-            // Read stored user data to decide active state of Members List button
-            if (membersListButton) {
-                if (BdApi.getData('CollapsibleUI', 'membersListButtonActive') === 'false') {
-                    membersListButton.classList.remove('selected-1GqIat');
-                    document.querySelector('.membersWrap-2h-GB4').style.maxWidth = '0px';
-                    document.querySelector('.membersWrap-2h-GB4').style.minWidth = '0px';
-                } else if (BdApi.getData('CollapsibleUI', 'membersListButtonActive') === 'true') {
-                    membersListButton.classList.add('selected-1GqIat');
-                } else {
-                    BdApi.setData('CollapsibleUI', 'membersListButtonActive', 'true');
-                    membersListButton.classList.add('selected-1GqIat');
-                }
             }
 
             // Add event listener to the Server List button to update the icon, UI, & settings on click
@@ -198,23 +179,6 @@ module.exports = (() => {
                     this.classList.add('selected-1GqIat');
                 }
             });
-
-            // Add event listener to the Members List button to update the icon, UI, & settings on click
-            if (membersListButton) {
-                membersListButton.addEventListener('click', function(){
-                    if (BdApi.getData('CollapsibleUI', 'membersListButtonActive') === 'true') {
-                        document.querySelector('.membersWrap-2h-GB4').style.maxWidth = '0px';
-                        document.querySelector('.membersWrap-2h-GB4').style.minWidth = '0px';
-                        BdApi.setData('CollapsibleUI', 'membersListButtonActive', 'false');
-                        this.classList.remove('selected-1GqIat');
-                    } else {
-                        document.querySelector('.membersWrap-2h-GB4').style.maxWidth = '240px';
-                        document.querySelector('.membersWrap-2h-GB4').style.removeProperty('min-width');
-                        BdApi.setData('CollapsibleUI', 'membersListButtonActive', 'true');
-                        this.classList.add('selected-1GqIat');
-                    }
-                });
-            }
         }
 
         // Initialize the plugin when it is enabled
